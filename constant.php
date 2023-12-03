@@ -12,6 +12,12 @@
 
         // 定数の中身を出力する
         echo SHIPPING_FEE;
+
+        // 定数に値を再代入する（エラー）
+        const SHIPPING_FEE = 800;
+
+        // 定数の中身を出力する
+        echo SHIPPING_FEE;
         ?>
     </p>
 </body>
