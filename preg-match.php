@@ -102,5 +102,26 @@
         }
         ?>
     </p>
+    <p>
+        <?php
+        echo '英数字が含まれているかどうかを正規表現で検索します。<br>';
+
+        if (preg_match('/[a-zA-Z0-9]/', $str)) {
+            echo '>正規表現に一致しました。';
+        }
+        ?>
+    </p>
+    <p>
+        <?php
+        echo '英数字が含まれているかどうかを正規表現で検索し、検索結果を配列に代入します。<br>';
+
+        if (preg_match('/[a-zA-Z0-9]/', $str, $results)) {
+            echo '>検索結果：';
+            print_r($results);
+        } else {
+            echo '>正規表現に一致しませんでした。';
+        }
+        ?>
+    </p>
 </body>
 </html>
