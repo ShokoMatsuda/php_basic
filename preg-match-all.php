@@ -50,6 +50,13 @@
     </p>
     <h2>
         <?php
+        $str = 'なし';
+
+        echo '検索対象:' . $str;
+        ?>
+    </h2>
+    <p>
+        <?php
         echo '「あ」で始まって「り」で終わる文字列と完全に一致しているかどうかを正規表現で検索します。<br>';
 
         if (preg_match_all('/\Aあ.*り\z/', $str)) {
@@ -58,6 +65,24 @@
             echo '>正規表現に一致しませんでした。';
         }
         ?>
+    </p>
+    <h2>
+        <?php
+        $email = 'taro.samurai55@example.com';
+
+        echo '検索対象：' . $email;
+        ?>
     </h2>
+    <p>
+        <?php
+        echo 'メールアドレスのフォーマットと完全に一致しているかどうかを正規表現で検索します。<br>';
+
+        if (preg_match_all('/\A[a-zA-Z0-9.]+@[a-zA-Z0-9.]+\z/', $email)) {
+            echo '>正規表現に一致しました。';
+        } else {
+            echo '>正規表現に一致しませんでした。';
+        }
+        ?>
+    </p>
 </body>
 </html>
