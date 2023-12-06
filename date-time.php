@@ -36,6 +36,19 @@
 
         // 取得した日時の差を特定のフォーマットで出力する
         echo $interval->format('%y年と%m月と%d日の差があります。総日数は%a日です。') . '<br>';
+
+        // 加算・減算してもインスタンス$nowの日時が変わらないように、DateTimeImmutableクラスを使って作成する
+        $now = new DateTimeImmutable();
+
+        // 現在の日時に1年を加算し、変数$addに代入する
+        $add = $now->modify('+1 year');
+
+        // 現在の日時から3日を減算し、変数$subに代入する（sub＝「減算」を意味するsubtractionの略）
+        $sub = $now->modify('-3 day');
+
+        // 加算・減算した日時を特定のフォーマットで出力する
+        echo $add->format('現在から1年後はY年n月j日H時i分s秒です。') . '<br>';
+        echo $sub->format('現在から3日前はY年n月j日H時i分s秒です。');
         ?>
     </p>
 </body>
