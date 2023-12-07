@@ -10,14 +10,14 @@
         // 独自のエラーハンドラ関数
         function myErrorHandler($errno, $errstr, $errfile, $errline){
             // エラーメッセージをログに記録する
-            error_log("[$errno] $errstr $errfile(errline)\n", 3, '/Applications/MAMP/logs/error.log');
+            error_log("[$errno] $errstr $errfile($errline)\n", 3, '/Applications/MAMP/logs/error.log');
 
             // エラーを画面に表示しない
             return TRUE;
         }
 
         // エラーハンドラ関数を登録
-        set_error_hadler('myErrorHandler');
+        set_error_handler('myErrorHandler');
 
         error_reporting(0);
         echo '全エラー無効' . '<br>';
