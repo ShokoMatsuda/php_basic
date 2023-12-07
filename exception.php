@@ -10,7 +10,7 @@
         try {
             // 現在の日付を取得
             $now = new DateTime();
-            $my_date = new DateTime('2019-05-01');
+            $my_date = new DateTime('3000-12-31');
 
             // 指定された日付が未来の場合は例外をスロー
             if($now < $my_date) {
