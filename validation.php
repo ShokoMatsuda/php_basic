@@ -8,10 +8,10 @@
     <p>
         <?php
         // 入力データを設定（今回はPHPで直接指定）
-        $name = '';
-        $password = 1234567;
-        $email = 'samuraitarou@@example.com';
-        $gender = '侍';
+        $name = '侍太郎';
+        $password = 12345678;
+        $email = 'samuraitarou@example.com';
+        $gender = '男性';
 
         // 氏名が入力されているか
         if (empty($name)) {
@@ -19,7 +19,7 @@
         }
 
         // パスワードの文字数条件を満たしているか
-        if (mb_strlec($password) < 8) {
+        if (mb_strlen($password) < 8) {
             exit('パスワードは8文字以上にしてください。');
         }
 
