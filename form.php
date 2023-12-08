@@ -23,7 +23,7 @@
             <tr>
                 <td>性別</td>
                 <td>
-                    <input type="radio" name="user_gender" value="男性" chechked>男性
+                    <input type="radio" name="user_gender" value="男性" checked>男性
                     <input type="radio" name="user_gender" value="女性">女性
                     <input type="radio" name="user_gender" value="その他">その他
                 </td>
