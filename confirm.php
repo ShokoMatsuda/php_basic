@@ -1,10 +1,10 @@
 <?php
 // POSTリクエストから入力データを取得
 $name = $_POST['user_name'];
-$name = $_POST['user_email'];
-$name = $_POST['user_gender'];
-$name = $_POST['category'];
-$name = $_POST['message'];
+$email = $_POST['user_email'];
+$gender = $_POST['user_gender'];
+$category = $_POST['category'];
+$message = $_POST['message'];
 ?>
 
 <!DOCTYPE html>
@@ -20,31 +20,31 @@ $name = $_POST['message'];
     <table border="1">
         <tr>
             <th>項目</th>
-            <th>入力内容<</th>
+            <th>入力内容</th>
         </tr>
         <tr>
-            <th>お名前</th>
-            <th><?php echo $name; ?></th>
-        </tr>
-
-        <tr>
-            <th>メールアドレス</th>
-            <th><?php echo $email; ?></th>
+            <td>お名前</td>
+            <td><?php echo $name; ?></td>
         </tr>
 
         <tr>
-            <th>性別</th>
-            <th><?php echo $gender; ?></th>
+            <td>メールアドレス</td>
+            <td><?php echo $email; ?></td>
         </tr>
 
         <tr>
-            <th>お問い合わせ種別</th>
-            <th><?php echo $category; ?></th>
+            <td>性別</td>
+            <td><?php echo $gender; ?></td>
         </tr>
 
         <tr>
-            <th>お問い合わせ内容</th>
-            <th><?php echo $message; ?></th>
+            <td>お問い合わせ種別</td>
+            <td><?php echo $category; ?></td>
+        </tr>
+
+        <tr>
+            <td>お問い合わせ内容</td>
+            <td><?php echo $message; ?></td>
         </tr>
     </table>
     <p>
