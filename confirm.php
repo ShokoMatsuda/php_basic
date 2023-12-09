@@ -1,4 +1,7 @@
 <?php
+// セッションを開始
+session_start();
+
 // POSTリクエストから入力データを取得
 $name = $_POST['user_name'];
 $email = $_POST['user_email'];
@@ -26,6 +29,20 @@ if (empty($message)) {
     $errors[] = 'お問い合わせ内容を入力してください。';
 } elseif (mb_strlen($message) > 100) {
     $errors[] = 'お問い合わせ内容が100文字を超えています。';
+}
+
+// 入力項目に問題なければセッション・クッキーを保存
+if (empty($errors)) {
+    // セッション変数を保存
+    $_SESSION['name'] = $name;
+    $_SESSION['email'] = $email;
+    $_SESSION['gender'] = $gender;
+    $_SESSION['category'] = $category;
+    $_SESSION['message'] = $message;
+
+    // クッキーを登録（有効期限は1時間）
+    setcookie('name', $name, time() + 3600);
+    setcookie('email', $email, time() + 3600);
 }
 ?>
 
@@ -77,7 +94,7 @@ if (empty($message)) {
     // 入力項目にエラーがある場合の処理
     if (!empty($errors)) {
         // 配列内のエラーメッセージを順番に出力
-        foreach ($erros as $error) {
+        foreach ($errors as $error) {
             echo '<font color="red">' . $error . '</font>' . '<br>';
         }
 
