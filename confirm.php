@@ -5,6 +5,28 @@ $email = $_POST['user_email'];
 $gender = $_POST['user_gender'];
 $category = $_POST['category'];
 $message = $_POST['message'];
+
+// エラーメッセージを格納する配列
+$errors = []; //最初はエラーなし
+
+// お名前のバリデーション
+if (empty($name)) {
+    $errors[] = 'お名前を入力してください。';
+}
+
+// メールアドレスのバリデーション
+if (empty($email)) {
+    $errors[] = 'メールアドレスを入力してください。';
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    $errors[] = 'メールアドレスの入力形式が正しくありません。';
+}
+
+// お問い合わせ内容のバリデーション
+if (empty($message)) {
+    $errors[] = 'お問い合わせ内容を入力してください。';
+} elseif (mb_strlen($message) > 100) {
+    $errors[] = 'お問い合わせ内容が100文字を超えています。';
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,5 +73,17 @@ $message = $_POST['message'];
         <button id="confirm-btn" onclick="location.href='complete.php';">確定</button>
         <button id="cancel-btn" onclick="history.back();">キャンセル</button>
     </p>
+    <?php
+    // 入力項目にエラーがある場合の処理
+    if (!empty($errors)) {
+        // 配列内のエラーメッセージを順番に出力
+        foreach ($erros as $error) {
+            echo '<font color="red">' . $error . '</font>' . '<br>';
+        }
+
+        // 確定ボタンを無効化するJavaScriptコードをブラウザ側に送信
+        echo '<script> document.getElementById("confirm-btn").disabled = true; </script>';
+    }
+    ?>
 </body>
 </html>
